@@ -53,25 +53,16 @@ int main()
 		sceCtrlPeekBufferPositive(0, &pad, 1);
 
 		if ((pad.buttons & EXIT_COMBO) == EXIT_COMBO) break;
-
-		if ((pad.buttons & SCE_CTRL_LEFT) && game.paddle.coord.x > 0) {
+		
+		
+		// Move Left
+		if (((pad.buttons & SCE_CTRL_LEFT) || pad.lx < 128 - ANALOG_THRESHOLD ||
+		(pad.buttons & SCE_CTRL_LTRIGGER)) && game.paddle.coord.x > 0) {
 			moveLeft();
 		}
-		if ((pad.buttons & SCE_CTRL_RIGHT) && game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH) {
-			moveRight();
-		}
-		/* Left analog stick left */
-		if ( pad.lx < 128 - ANALOG_THRESHOLD && game.paddle.coord.x > 0) {
-			moveLeft();
-		}
-		/* Left analog stick right */
-		if (pad.lx > 128 + ANALOG_THRESHOLD && game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH) {
-			moveRight();
-		}
-		if ((pad.buttons & SCE_CTRL_LTRIGGER) && game.paddle.coord.x > 0) {
-			moveLeft();
-		}
-		if ((pad.buttons & SCE_CTRL_RTRIGGER) && game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH) {
+		// Move Right
+		if ((pad.buttons & SCE_CTRL_RIGHT) || pad.lx > 128 + ANALOG_THRESHOLD ||
+		(pad.buttons & SCE_CTRL_RTRIGGER)) && game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH) {
 			moveRight();
 		}
 		//BOT autoplay
