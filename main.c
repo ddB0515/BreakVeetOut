@@ -56,13 +56,13 @@ int main()
 		
 		
 		// Move Left
-		if (((pad.buttons & SCE_CTRL_LEFT) || pad.lx < 128 - ANALOG_THRESHOLD ||
-		(pad.buttons & SCE_CTRL_LTRIGGER)) && game.paddle.coord.x > 0) {
+		if (((pad.buttons & SCE_CTRL_LEFT) || (pad.lx < 128 - ANALOG_THRESHOLD) ||
+		(pad.buttons & SCE_CTRL_LTRIGGER)) && (game.paddle.coord.x > 0)) {
 			moveLeft();
 		}
 		// Move Right
-		if ((pad.buttons & SCE_CTRL_RIGHT) || pad.lx > 128 + ANALOG_THRESHOLD ||
-		(pad.buttons & SCE_CTRL_RTRIGGER)) && game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH) {
+		if ((pad.buttons & SCE_CTRL_RIGHT) || (pad.lx > 128 + ANALOG_THRESHOLD) ||
+		(pad.buttons & SCE_CTRL_RTRIGGER)) && (game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH)) {
 			moveRight();
 		}
 		//BOT autoplay
