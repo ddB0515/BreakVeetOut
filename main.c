@@ -61,7 +61,7 @@ int main()
 			moveLeft();
 		}
 		// Move Right
-		if ((pad.buttons & SCE_CTRL_RIGHT) || (pad.lx > 128 + ANALOG_THRESHOLD) ||
+		if (((pad.buttons & SCE_CTRL_RIGHT) || (pad.lx > 128 + ANALOG_THRESHOLD) ||
 		(pad.buttons & SCE_CTRL_RTRIGGER)) && (game.paddle.coord.x < SCREEN_W-PADDLE_WIDTH)) {
 			moveRight();
 		}
